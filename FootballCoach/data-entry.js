@@ -2,18 +2,36 @@ function positionChange() {
     const playerPosition = document.getElementById("playerPosition");
     const secondPositionContainer = document.getElementById("secondPositionContainer");
     
-    // Show the second position dropdown if the user selects a position
-    if (){
-      
-    }
+    // Show the second position dropdown if a position is selected
     if (playerPosition.value !== "") {
       secondPositionContainer.style.display = "block";
     } else {
       // Hide the second position dropdown if no position is selected
       secondPositionContainer.style.display = "none";
     }
-  }
+
+    playerPosition.addEventListener("click", checkTeams);
+    }
   
+function checkTeams(){
+  let team2 = JSON.parse(localStorage.getItem('team2'));
+  const dropdown = document.getElementById("playerPosition");
+  const dropdown2 = document.getElementById("secondPlayerPosition");
+  // Check if team 2 includes each position and disable the dropdown option
+  
+  team2.forEach(player => {
+    const option = dropdown.querySelector(`[value="${player.position}"]`);
+    const option2 = dropdown2.querySelector(`[value="${player.position}"]`);
+    if (option) {
+      option.disabled = true;
+    }
+    if (option2) {
+      option2.disabled = true;
+    }
+  });
+  dropdown.removeEventListener("click", checkTeams);
+}
+
   function submitData() {
     // Get user input
     const playerName = document.getElementById("playerName").value;

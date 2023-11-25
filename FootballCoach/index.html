@@ -19,7 +19,7 @@
       <input type="text" id="playerLastName" name="playerLastName" required>
 
       <label for="playerPosition">Position:</label>
-      <select id="playerPosition" name="playerPosition" onchange="positionChange()">
+      <select id="playerPosition" name="playerPosition" onclick='checkTeams()' onchange="positionChange()">
         <option value="" selected disabled>Select Position</option>
         <option value="Goalkeeper">Goalkeeper</option>
         <option value="Center back">Center back</option>
@@ -38,6 +38,7 @@
       <div id="secondPositionContainer" style="display: none;">
         <label for="secondPlayerPosition">Second Position:</label>
         <select id="secondPlayerPosition" name="secondPlayerPosition">
+            <option value="" selected disabled>Select Position</option>
             <option value="Goalkeeper">Goalkeeper</option>
             <option value="Center back">Center back</option>
             <option value="Right back">Right back</option>

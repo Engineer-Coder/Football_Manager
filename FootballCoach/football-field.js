@@ -25,107 +25,32 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Adjust the position of the player icon on the field
-      if(player.position === "Goalkeeper" && team1.includes(player)){
-      const positionX = 10;
-      const positionY = 45;
-      insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Goalkeeper" && team2.includes(player)){
-        const positionX = 83;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };    
-      if(player.position === "Center back" && team1.includes(player)){
-        const positionX = 18;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Center back" && team2.includes(player)){
-        const positionX = 73;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Right back" && team1.includes(player)){
-        const positionX = 18;
-        const positionY = 65;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Right back" && team2.includes(player)){
-        const positionX = 73;
-        const positionY = 65;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Left back" && team1.includes(player)){
-        const positionX = 18;
-        const positionY = 25;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Left back" && team2.includes(player)){
-        const positionX = 73;
-        const positionY = 25;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Central Midfielder" && team1.includes(player)){
-        const positionX = 43;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Central Midfielder" && team2.includes(player)){
-        const positionX = 50;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Right Midfielder" && team1.includes(player)){
-        const positionX = 43;
-        const positionY = 65;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Right Midfielder" && team2.includes(player)){
-        const positionX = 50;
-        const positionY = 65;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Left Midfielder" && team1.includes(player)){
-        const positionX = 43;
-        const positionY = 25;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Left Midfielder" && team2.includes(player)){
-        const positionX = 50;
-        const positionY = 25;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Striker" && team1.includes(player)){
-        const positionX = 65;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Striker" && team2.includes(player)){
-        const positionX = 25;
-        const positionY = 45;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Right Attacker" && team1.includes(player)){
-        const positionX = 65;
-        const positionY = 65;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Right Attacker" && team2.includes(player)){
-        const positionX = 25;
-        const positionY = 65;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Left Attacker" && team1.includes(player)){
-        const positionX = 65;
-        const positionY = 25;
-        insertPlayerIcon(positionX,positionY);
-      };
-      if(player.position === "Left Attacker" && team2.includes(player)){
-        const positionX = 25;
-        const positionY = 25;
-        insertPlayerIcon(positionX,positionY);
+      const positionMap = {
+        "Goalkeeper": { team1: { x: 10, y: 45 }, team2: { x: 83, y: 45 } },
+        "Center back": { team1: { x: 18, y: 45 }, team2: { x: 73, y: 45 } },
+        "Right back": { team1: { x: 18, y: 65 }, team2: { x: 73, y: 65 } },
+        "Left back": { team1: { x: 18, y: 25 }, team2: { x: 73, y: 25 } },
+        "Central Midfielder": { team1: { x: 43, y: 45 }, team2: { x: 50, y: 45 } },
+        "Right Midfielder": { team1: { x: 43, y: 65 }, team2: { x: 50, y: 65 } },
+        "Left Midfielder": { team1: { x: 43, y: 25 }, team2: { x: 50, y: 25 } },
+        "Striker": { team1: { x: 65, y: 45 }, team2: { x: 25, y: 45 } },
+        "Right Attacker": { team1: { x: 65, y: 65 }, team2: { x: 25, y: 65 } },
+        "Left Attacker": { team1: { x: 65, y: 25 }, team2: { x: 25, y: 25 } }
       };
       
+      const positionInfo = positionMap[player.position];
+      
+      if (positionInfo && team1.includes(player)) {
+        const { x, y } = positionInfo.team1;
+        insertPlayerIcon(x, y);
+      } else if (positionInfo && team2.includes(player)) {
+        const { x, y } = positionInfo.team2;
+        insertPlayerIcon(x, y);
+      }
+      
+      localStorage.setItem("team2", JSON.stringify(team2));
+      
+
       function insertPlayerIcon(X,Y){
         playerIcon.style.left = `${X}%`;
         playerIcon.style.top = `${Y}%`;
