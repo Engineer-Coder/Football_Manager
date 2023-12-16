@@ -1,14 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
+  margin: 5px;
+  padding: 5px;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   background-color: rgb(5, 44, 8);
 }
 
 .container {
   text-align: center;
-  max-width: 600px;
-  margin: 100px auto;
+  max-width: 56%; /* Set to 100% */
+  margin: 50px auto;
   background-color: #ad4343a4;
   padding: 20px;
   border-radius: 8px;
@@ -35,7 +35,7 @@ select {
   margin-top: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  
+  border-radius: 8px;
 }
 
 button{
@@ -55,4 +55,26 @@ button{
 
 .cta-button:hover {
   background-color: #45a049;
+}
+
+.football-field {
+  background: url('https://t3.ftcdn.net/jpg/02/14/23/42/360_F_214234265_cw9c9yW4X04SNhoRyel1Kf9ZTEiqfKz7.jpg') top/cover no-repeat;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%; /* Adjust as needed to maintain the aspect ratio */
+  padding-top: 10%;
+  position: relative;
+}
+
+.player-icon {
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+  background-color: #3498db;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
 }

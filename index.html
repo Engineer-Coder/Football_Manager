@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  
   <title>Football Field Manager</title>
 </head>
 <body>
@@ -15,29 +16,18 @@
     <form id="dataEntryForm">
       <label for="playerName">Name:</label>
       <input type="text" id="playerName" name="playerName" required>
-      <label for="playerLastName" name='playerLastName'>Last Name:</label>
+      <label for="playerLastName" id="lastNameLabel" name='playerLastName'>Last Name:</label>
       <input type="text" id="playerLastName" name="playerLastName" required>
 
-      <label for="playerPosition">Position:</label>
-      <select id="playerPosition" name="playerPosition" onclick='checkTeams()' onchange="positionChange()">
-        <option value="" selected disabled>Select Position</option>
-        <option value="Goalkeeper">Goalkeeper</option>
-        <option value="Center back">Center back</option>
-        <option value="Right back">Right back</option>
-        <option value="Left back">Left back</option>
-        <option value="Central Midfielder">Central Midfielder</option>
-        <option value="Right Midfielder">Right Midfielder</option>
-        <option value="Left Midfielder">Left Midfielder</option>
-        <option value="Striker">Striker</option>
-        <option value="Right Attacker">Right Attacker</option>
-        <option value="Left Attacker">Left Attacker</option>
-        <!-- Add more positions as needed -->
-      </select>
-
+      <div id="dataEntrydiv"></div>
       <button type="button" onclick="submitData()">See the field</button>
     </form>
   </div>
-
+  <div class="container">
+    <h1>Football Field</h1>
+    <div id="field" class="football-field"></div>
+  </div>
+  
   <script src="data-entry.js"></script>
 </body>
 </html>
